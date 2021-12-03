@@ -122,6 +122,9 @@ fi
 if ! testCommand mdb-queries test/data/ASampleDatabase.accdb qryCostsSummedByOwner; then
 	rc=1
 fi
+if ! testCommand mdb-export -X '@' -d '|' -D %F -T '%F %T' -R "\n" -q '"' -H -e test/data/DateTestDatabase.mdb DateTest; then
+	rc=1
+fi
 
 if [ $rc = 0 ]; then
 	printf -- '\n%s passed.\n' "$0"
