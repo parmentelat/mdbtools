@@ -54,7 +54,7 @@ jobs:
         glib: [ enable-glib, disable-glib ]
     steps:
       - name: Install packages
-        run: brew install bison gawk automake libtool unixodbc
+        run: brew install bison gawk automake libtool unixodbc glib
       - uses: actions/checkout@v2
       - name: Fetch test data
         run: |
@@ -95,9 +95,13 @@ jobs:
         glib: [ enable-glib, disable-glib ]
     steps:
       - name: Install packages
+<<<<<<< HEAD
         run: brew install bison gawk automake libtool libiodbc
       - name: Add path
         run: echo /opt/homebrew/opt/libiodbc/bin >> $GITHUB_PATH
+=======
+        run: brew install libiodbc bison gawk automake glib
+>>>>>>> 7149187 (Need glib for osx builds with --enable-glib.)
       - uses: actions/checkout@v2
       - name: Fetch test data
         run: |
